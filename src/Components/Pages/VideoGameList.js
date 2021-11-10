@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { Filter } from "../Components/Filter";
-import { Game } from "./Game";
+import { Filter } from "../Filter";
+import { Game } from "../Game";
 
 const VideoGameList = () => {
     const [filter, setFilter] = useState("")
@@ -8,7 +8,7 @@ const VideoGameList = () => {
 
     const getGames = async () => {
         try{
-            const res = await fetch("https://rawg-video-games-database.p.rapidapi.com/games?key=bf24f5c0887a49a4ad0df2bd7dfc4bef", {
+            const res = await fetch("https://rawg-video-games-database.p.rapidapi.com/games?key=bf24f5c0887a49a4ad0df2bd7dfc4bef&page_size=100", {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
