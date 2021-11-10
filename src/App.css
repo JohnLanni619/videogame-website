@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.images {
+  height: 200px;
+  width: 300px;
+}
+
+.game-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
