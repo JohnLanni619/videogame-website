@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Metacritic from "../../Metacritic.svg"
+
 
 const BASE_URL = "https://rawg-video-games-database.p.rapidapi.com/games/"
-const API_KEY = "?key=bf24f5c0887a49a4ad0df2bd7dfc4bef"
+const API_KEY = process.env.REACT_APP_GAME_API
 
 export function GameDetail() {
     const { id } = useParams()
@@ -30,14 +30,13 @@ export function GameDetail() {
         getGame()
     }, [id])
 
-    if (!game.name) return null
+    if (!game.name) return <h1>loading...</h1>
     return(
         <div>
             <h3>
                 {game.name} 
-                <span><img src={Metacritic} style={{height: "25px"}} /></span>
             </h3>
-            <img className="images" src={game.background_image_additional}/>
+            <img className="single-game-image" src={game.background_image_additional}/>
             <p>{game.description_raw}</p>
             <ul>
                 {game.platforms.map( (platform) => {

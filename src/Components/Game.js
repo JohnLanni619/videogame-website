@@ -7,7 +7,7 @@ export function Game({game}) {
         <li>
             <Link to={`/game/${game.id}`}>
                 <img className="images" src={game.background_image} alt={`${game.name} " background"`}/>
-                <h3>{game.name}</h3>
+                <h3>{game.name} {game.metacritic}</h3>
             </Link>
         </li>
     )
